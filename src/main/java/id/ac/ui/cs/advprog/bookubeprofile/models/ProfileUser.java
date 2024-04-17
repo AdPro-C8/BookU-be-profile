@@ -44,10 +44,14 @@ public class ProfileUser {
   @Column(nullable = false)
   @Setter
   @Getter
-  private Gender gender;
+  private String gender;
 
   @Column(nullable = false)
   @Setter
   @Getter
   private LocalDate birthdate;
+
+  public static ProfileUserBuilder builder() {
+    return new ProfileUserBuilder();
+  }
 }
