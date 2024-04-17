@@ -1,5 +1,7 @@
 package id.ac.ui.cs.advprog.bookubeprofile.models;
 
+import id.ac.ui.cs.advprog.bookubeprofile.enums.Gender;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,7 +44,7 @@ public class ProfileUser {
   @Column(nullable = false)
   @Setter
   @Getter
-  private String gender;
+  private Gender gender;
 
   @Column(nullable = false)
   @Setter
