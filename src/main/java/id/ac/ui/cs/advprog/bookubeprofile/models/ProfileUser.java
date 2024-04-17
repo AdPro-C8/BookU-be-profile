@@ -29,6 +29,21 @@ public class ProfileUser {
   @Getter
   private String lastName;
 
+  @Column
+  @Setter
+  @Getter
+  private String profilePicture;
+
+  @Column
+  @Setter
+  @Getter
+  private String bio;
+
+  @Column(nullable = false)
+  @Setter
+  @Getter
+  private String gender;
+
   @Column(nullable = false)
   @Setter
   @Getter
