@@ -21,4 +21,8 @@ public class ProfileUserService {
         profileUserRepository.findAll().forEach(users::add);
         return users;
     }
+
+    public ProfileUser getUserByEmail(String email) {
+        return profileUserRepository.findByEmail(email).orElse(null);
+    }
 }
