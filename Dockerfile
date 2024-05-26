@@ -18,7 +18,7 @@ USER ${USER_NAME}
 WORKDIR /opt/bookubeprofile
 COPY --from=builder --chown=${USER_UID}:${USER_GID} /src/bookubeprofile/build/libs/*.jar app.jar
 
-EXPOSE 8080
+EXPOSE 8000
 
 ENTRYPOINT ["java"]
 CMD ["-jar", "app.jar"]
