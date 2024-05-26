@@ -43,9 +43,8 @@ class SecurityConfiguration {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(customizer -> customizer
-                        // Uncomment to permit all requests to /cart without authentication
-                        // .requestMatchers("/cart/**")
-                        // .permitAll()
+                        .requestMatchers("/health/**")
+                        .permitAll()
                         .anyRequest()
                         .authenticated()
                 )
