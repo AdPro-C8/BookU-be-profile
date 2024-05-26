@@ -1,6 +1,7 @@
 package id.ac.ui.cs.advprog.bookubeprofile.models;
 
 import id.ac.ui.cs.advprog.bookubeprofile.enums.Gender;
+import id.ac.ui.cs.advprog.bookubeprofile.models.ProfileUser;
 
 import java.lang.IllegalArgumentException;
 import java.time.LocalDate;
@@ -16,7 +17,7 @@ public class ProfileUserBuilder {
 
     public ProfileUserBuilder email(String email) {
         if (email == null || email.isEmpty()) {
-            throw new IllegalArgumentException("Email cannot be empty");
+            return this;
         }
         if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
             throw new IllegalArgumentException("Invalid email");
@@ -48,11 +49,23 @@ public class ProfileUserBuilder {
     }
 
     public ProfileUserBuilder profilePicture(String profilePicture) {
+        if (profilePicture == null || profilePicture.isEmpty()) {
+            return this;
+        }
+        if (!profilePicture.matches("^(http|https)://.*$")) {
+            throw new IllegalArgumentException("Invalid URL");
+        }
         this.profilePicture = profilePicture;
         return this;
     }
 
     public ProfileUserBuilder bio(String bio) {
+        if (bio == null || bio.isEmpty()) {
+            return this;
+        }
+        if (bio.length() > 200) {
+            throw new IllegalArgumentException("Bio cannot be more than 200 characters");
+        }
         this.bio = bio;
         return this;
     }
