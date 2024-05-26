@@ -26,17 +26,17 @@ jobs:
 
       - name: Build
         run: |
-          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/booku-be-auth:latest .
+          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/booku-be-profile:latest .
 
       - name: Push
         run: |
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/booku-be-auth:latest
+          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/booku-be-profile:latest
 
       - name: Deploy
         run: |
-          gcloud run deploy booku-be-auth \
+          gcloud run deploy booku-be-profile \
           --region europe-west1 \
-          --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/booku-be-auth \
+          --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/booku-be-profile \
           --platform managed \
           --allow-unauthenticated \
           --project ${{ secrets.GCP_PROJECT_ID }} \
